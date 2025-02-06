@@ -293,7 +293,7 @@ const handlePlantsClick = (e) => {
                         onClick={() => handleAddToCart(plant)}
                         disabled={addedToCart[plant.name]}
                       >
-                        {addedToCart[plant.name] ? 'Ajouté au panier' : 'Ajouter au panier'}
+                        {addedToCart[plant.name] ? 'Added to Cart' : 'Add to Cart'}
                       </button>
                     </div>
                   </div>
