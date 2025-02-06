@@ -23,10 +23,12 @@ const CartItem = ({ onContinueShopping }) => {
   };
 
   const handleIncrement = (item) => {
-    dispatch(updateQuantity({
-      name: item.name,
-      quantity: item.quantity + 1
-    }));
+    if (item.quantity < 99) { // Limite maximale
+      dispatch(updateQuantity({
+        name: item.name,
+        quantity: item.quantity + 1
+      }));
+    }
   };
 
   const handleDecrement = (item) => {
@@ -41,7 +43,9 @@ const CartItem = ({ onContinueShopping }) => {
   };
 
   const handleRemove = (item) => {
-    dispatch(removeItem(item.name));
+    if (window.confirm(`Are you sure you want to remove this item from your cart?`)) {
+      dispatch(removeItem(item.name));
+    }
   };
 
   const calculateTotalCost = (item) => {
